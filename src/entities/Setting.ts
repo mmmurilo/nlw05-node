@@ -6,7 +6,6 @@ import { Entity,
 } from 'typeorm';
 
 import { v4 as uuid } from 'uuid';
-import { CreateSettings1618954219557 } from '../database/migrations/1618954219557-CreateSettings';
 
 @Entity("settings")
 class Setting{
