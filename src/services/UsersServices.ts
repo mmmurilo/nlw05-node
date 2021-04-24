@@ -5,9 +5,15 @@ import { User } from '../entities/User';
 class UsersService{
     private usersRepository: Repository<User>
 
-    construtor(){
+    constructor(){
         this.usersRepository = getCustomRepository(UsersRepository);
-    }
+    };
+
+    async findByEmail(email: string){
+        const user = await this.usersRepository.findOne({email});
+
+        return user;
+    };
 
     async create(email: string){
         //Verificar se o usuário existe, se não existir criar
@@ -22,8 +28,7 @@ class UsersService{
         await this.usersRepository.save(user);
 
         return user;
-    }
-
+    };
 }
 
 export { UsersService };

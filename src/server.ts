@@ -1,13 +1,5 @@
-import express from 'express'; //importação com os ... significa que instalou a biblioteca, mas precisa instalar as tipagens
-
-import "./database"; //importar o index.ts do database
-import { routes } from './routes';
-
-const app = express();
-
-app.use(express.json());
-
-app.use(routes);
+import { http } from './http';
+import './websocket/client';
 
 /**
  * GET = Buscas
@@ -18,4 +10,5 @@ app.use(routes);
  * Posso utilizar a mesma rota com métodos diferentes
  */
 
-app.listen(3333, () => console.log("Server is running on port 3333"))
+http.listen(3333, () => console.log("Server is running on port 3333"))
+//app.listen(3333, () => console.log("Server is running on port 3333"))
